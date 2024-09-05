@@ -23,12 +23,6 @@ Program to implement univariate Linear Regression to fit a straight line using l
 Developed by: GOGINENI BIDHISHA
 RegisterNumber:  212223040048
 ```
-Program to implement the simple linear regression model for predicting the marks scored.
-
-Developed by: Raja Gopal V
-
-RegisterNumber: 212223240134
- 
 /*
 ```
 import pandas as pd
