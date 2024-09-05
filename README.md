@@ -22,58 +22,40 @@ Program to implement univariate Linear Regression to fit a straight line using l
 Developed by: GOGINENI BIDHISHA
 RegisterNumber:  212223040048
 
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_absolute_error,mean_squared_error
-df = pd.read_csv('student_scores.csv')
-print(df)
-print()
-df.head(0)
-df.tail(0)
-print(df.head())
-print(df.tail())
-x = df.iloc[:,:-1].values
-print(x)
-y = df.iloc[:,1].values
-print(y)
-from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
-from sklearn.linear_model import LinearRegression
-regressor = LinearRegression()
-regressor.fit(x_train,y_train)
-y_pred = regressor.predict(x_test)
-print(y_pred)
-print(y_test)
 
-#Graph plot for training data
+X= np.array(eval(input()))
+Y= np.array(eval(input()))
 
-plt.scatter(x_train,y_train,color='black')
-plt.plot(x_train,regressor.predict(x_train),color='blue')
-plt.title("Hours vs Scores(Training set)")
-plt.xlabel("Hours")
-plt.ylabel("Scores")
+X_mean= np.mean(X)
+Y_mean= np.mean(Y)
+
+num=0
+denom=0
+
+for i in range(len(X)):
+    num+=(X[i]-X_mean)*(Y[i]-Y_mean)
+    denom+=(X[i]-X_mean)**2
+
+m=num/denom
+
+b=Y_mean - m*X_mean
+
+print(m,b)
+
+Y_predicted=m*X + b
+print(Y_predicted)
+
+plt.scatter(X,Y)
+plt.plot(X,Y_predicted,color='violet')
 plt.show()
 
-#Graph plot for test data
-
-plt.scatter(x_test,y_test,color='black')
-plt.plot(x_train,regressor.predict(x_train),color='red')
-plt.title("Hours vs Scores(Testing set)")
-plt.xlabel("Hours")
-plt.ylabel("Scores")
-plt.show()
-mse=mean_absolute_error(y_test,y_pred)
-print('MSE = ',mse)
-mae=mean_absolute_error(y_test,y_pred)
-print('MAE = ',mae)
-rmse=np.sqrt(mse)
-print("RMSE= ",rmse)
 ```
 
 ## Output:
 ![best fit line](sam.png)
-![image](https://github.com/user-attachments/assets/46d652d4-e85c-42c5-a331-c1768da74c6f)
+![image](https://github.com/user-attachments/assets/9502447f-72a6-4fbd-8382-e233c4cc9445)
 
 
 ## Result:
