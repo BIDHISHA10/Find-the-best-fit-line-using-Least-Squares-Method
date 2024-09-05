@@ -30,6 +30,7 @@ Developed by: Raja Gopal V
 RegisterNumber: 212223240134
  
 /*
+```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -77,7 +78,7 @@ mae=mean_absolute_error(y_test,y_pred)
 print('MAE = ',mae)
 rmse=np.sqrt(mse)
 print("RMSE= ",rmse)
-
+```
 */
 ```
 
